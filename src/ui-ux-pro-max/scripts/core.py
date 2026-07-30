@@ -6,6 +6,7 @@ UI/UX Pro Max Core - BM25 search engine for UI/UX style guides
 
 import csv
 import re
+import difflib
 from pathlib import Path
 from math import log
 from collections import defaultdict
@@ -150,14 +151,35 @@ _SYNONYMS = {
 }
 
 
+# Pre-compiled word-boundary patterns so a short synonym key never rewrites a
+# substring of a larger word. A plain str.replace() turned "nav" -> "navigation"
+# inside "navbar" ("navigationbar") and even "navigation" itself
+# ("navigationigation"); anchoring on \b restricts each rule to whole tokens.
+# Longest variants first so overlapping keys resolve to the most specific match.
+_SYNONYM_PATTERNS = [
+    (re.compile(r'\b' + re.escape(variant) + r'\b'), canonical)
+    for variant, canonical in sorted(_SYNONYMS.items(), key=lambda kv: -len(kv[0]))
+]
+
+
 def _normalize(text):
-    """Apply synonym substitution before tokenizing."""
-    for variant, canonical in _SYNONYMS.items():
-        text = text.replace(variant, canonical)
+    """Apply whole-word synonym substitution before tokenizing."""
+    for pattern, canonical in _SYNONYM_PATTERNS:
+        text = pattern.sub(canonical, text)
     return text
 
 
 # ============ BM25 IMPLEMENTATION ============
+# Typo tolerance: when a query token has no exact match in the index, fall back
+# to its closest vocabulary term so a misspelling ("glassmorphsm") still surfaces
+# results instead of returning nothing. Kept deliberately strict -- only tokens
+# long enough to be typo-prone are eligible, the similarity cutoff is high, and
+# a fuzzy hit is down-weighted so exact matches always outrank it.
+FUZZY_MIN_LEN = 4
+FUZZY_CUTOFF = 0.82
+FUZZY_WEIGHT = 0.6
+
+
 class BM25:
     """BM25 ranking algorithm for text search"""
 
@@ -171,6 +193,7 @@ class BM25:
         self.doc_freqs = defaultdict(int)
         self.N = 0
         self._term_freqs = []  # precomputed per-doc term frequencies
+        self._vocab_list = []  # cached vocabulary for fuzzy matching
 
     def tokenize(self, text):
         """Lowercase, normalize synonyms, split, remove punctuation, filter stopwords"""
@@ -199,9 +222,31 @@ class BM25:
         for word, freq in self.doc_freqs.items():
             self.idf[word] = log((self.N - freq + 0.5) / (freq + 0.5) + 1)
 
-    def score(self, query):
-        """Score all documents against query"""
-        query_tokens = self.tokenize(query)
+        self._vocab_list = list(self.idf.keys())
+
+    def _weighted_query_terms(self, query, fuzzy=True):
+        """Map query tokens to (indexed_term, weight) pairs.
+
+        Exact matches carry full weight. A token with no exact match is, when
+        fuzzy is on, redirected to its closest vocabulary term at a reduced
+        weight so typos still score without ever outranking a real match.
+        Tokens that match nothing are dropped.
+        """
+        terms = []
+        for token in self.tokenize(query):
+            if token in self.idf:
+                terms.append((token, 1.0))
+            elif fuzzy and len(token) >= FUZZY_MIN_LEN:
+                match = difflib.get_close_matches(
+                    token, self._vocab_list, n=1, cutoff=FUZZY_CUTOFF
+                )
+                if match:
+                    terms.append((match[0], FUZZY_WEIGHT))
+        return terms
+
+    def score(self, query, fuzzy=True):
+        """Score all documents against query (with optional typo tolerance)"""
+        weighted_terms = self._weighted_query_terms(query, fuzzy=fuzzy)
         scores = []
 
         for idx in range(self.N):
@@ -209,13 +254,12 @@ class BM25:
             doc_len = self.doc_lengths[idx]
             term_freqs = self._term_freqs[idx]
 
-            for token in query_tokens:
-                if token in self.idf:
-                    tf = term_freqs.get(token, 0)
-                    idf = self.idf[token]
-                    numerator = tf * (self.k1 + 1)
-                    denominator = tf + self.k1 * (1 - self.b + self.b * doc_len / self.avgdl)
-                    score += idf * numerator / denominator
+            for token, weight in weighted_terms:
+                tf = term_freqs.get(token, 0)
+                idf = self.idf[token]
+                numerator = tf * (self.k1 + 1)
+                denominator = tf + self.k1 * (1 - self.b + self.b * doc_len / self.avgdl)
+                score += weight * idf * numerator / denominator
 
             scores.append((idx, score))
 

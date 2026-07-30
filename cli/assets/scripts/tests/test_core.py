@@ -42,6 +42,16 @@ class TestTokenizer(unittest.TestCase):
         self.assertEqual(bm25.tokenize("e-commerce store"), bm25.tokenize("ecommerce store"))
         self.assertEqual(bm25.tokenize("dark-mode toggle"), bm25.tokenize("dark toggle"))
 
+    def test_synonym_replacement_is_whole_word_only(self):
+        """A short synonym key ('nav') must not rewrite substrings of larger
+        words. Regression: str.replace turned 'navigation' -> 'navigationigation'
+        and 'navbar' -> 'navigationbar'."""
+        bm25 = BM25()
+        self.assertEqual(bm25.tokenize("navigation menu"), ["navigation", "menu"])
+        self.assertEqual(bm25.tokenize("navbar layout"), ["navbar", "layout"])
+        # The standalone 'nav' abbreviation is still expanded.
+        self.assertEqual(bm25.tokenize("nav menu"), ["navigation", "menu"])
+
 
 class TestSearchDomains(unittest.TestCase):
     """Known query -> expected top-domain sanity checks (not exact-row pinning,
@@ -73,6 +83,37 @@ class TestSearchDomains(unittest.TestCase):
             with self.subTest(stack=stack):
                 result = search_stack("performance", stack, max_results=1)
                 self.assertNotIn("error", result, f"stack '{stack}' failed: {result.get('error')}")
+
+
+class TestFuzzyMatching(unittest.TestCase):
+    """Typo tolerance: a misspelled query token with no exact index match
+    should fall back to its closest vocabulary term instead of scoring zero."""
+
+    def test_typo_still_returns_results(self):
+        exact = search("glassmorphism", domain="style", max_results=1)
+        typo = search("glassmorphsm", domain="style", max_results=1)
+        self.assertGreater(exact["count"], 0)
+        self.assertGreater(typo["count"], 0, "a one-char typo should still surface a result")
+
+    def test_typo_never_outranks_exact_match(self):
+        bm25 = BM25()
+        bm25.fit(["glassmorphism frosted glass blur", "minimalism clean flat spacing"])
+        exact = bm25.score("glassmorphism")
+        typo = bm25.score("glassmorphsm")
+        # Same document ranks first either way, but the exact query scores higher.
+        self.assertEqual(exact[0][0], typo[0][0])
+        self.assertGreater(exact[0][1], typo[0][1])
+
+    def test_gibberish_stays_zero(self):
+        """Fuzzy matching must not turn genuine non-matches into false hits."""
+        result = search("zzqqxx totally madeup gibberish", domain="ux", max_results=2)
+        self.assertEqual(result["count"], 0)
+
+    def test_fuzzy_can_be_disabled(self):
+        bm25 = BM25()
+        bm25.fit(["glassmorphism frosted glass blur"])
+        scored = bm25.score("glassmorphsm", fuzzy=False)
+        self.assertEqual(scored[0][1], 0, "with fuzzy off a typo must score zero")
 
 
 class TestDomainDetection(unittest.TestCase):
