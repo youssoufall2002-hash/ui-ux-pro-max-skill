@@ -52,6 +52,15 @@ class TestTokenizer(unittest.TestCase):
         # The standalone 'nav' abbreviation is still expanded.
         self.assertEqual(bm25.tokenize("nav menu"), ["navigation", "menu"])
 
+    def test_short_abbreviations_expand(self):
+        """Sub-4-char abbreviations the fuzzy scorer can't reach are handled
+        by the synonym map, whole-word only."""
+        bm25 = BM25()
+        self.assertEqual(bm25.tokenize("btn primary"), bm25.tokenize("button primary"))
+        self.assertEqual(bm25.tokenize("hero bg"), bm25.tokenize("hero background"))
+        # Must not rewrite a substring of a larger word.
+        self.assertIn("debugging", bm25.tokenize("debugging bg"))
+
 
 class TestSearchDomains(unittest.TestCase):
     """Known query -> expected top-domain sanity checks (not exact-row pinning,
@@ -114,6 +123,23 @@ class TestFuzzyMatching(unittest.TestCase):
         bm25.fit(["glassmorphism frosted glass blur"])
         scored = bm25.score("glassmorphsm", fuzzy=False)
         self.assertEqual(scored[0][1], 0, "with fuzzy off a typo must score zero")
+
+    def test_search_fuzzy_flag_threads_through(self):
+        """search(fuzzy=False) must disable typo recovery end-to-end."""
+        with_fuzzy = search("glassmorphsm", domain="style", max_results=1, fuzzy=True)
+        without_fuzzy = search("glassmorphsm", domain="style", max_results=1, fuzzy=False)
+        self.assertGreater(with_fuzzy["count"], 0)
+        self.assertEqual(without_fuzzy["count"], 0)
+
+
+class TestSuggestions(unittest.TestCase):
+    def test_suggestions_surface_intended_term(self):
+        """A typo with fuzzy off returns no rows but should suggest the term
+        the user most likely meant, ranked by similarity via difflib."""
+        result = search("glassmorphsm", domain="style", max_results=2, fuzzy=False)
+        self.assertEqual(result["count"], 0)
+        self.assertIn("suggestions", result)
+        self.assertIn("glassmorphism", result["suggestions"])
 
 
 class TestDomainDetection(unittest.TestCase):

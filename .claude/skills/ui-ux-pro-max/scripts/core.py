@@ -148,6 +148,14 @@ _SYNONYMS = {
     "organisation": "organization",
     "behaviour": "behavior",
     "ux/ui": "ux ui",
+    # Short dev/design abbreviations. These are below FUZZY_MIN_LEN, so the
+    # typo-tolerant scorer can't recover them -- the synonym map is the only
+    # thing that lets "btn" reach "button". Word-boundary matching keeps them
+    # from rewriting substrings (e.g. "bg" never touches "debugging").
+    "btn": "button",
+    "bg": "background",
+    "img": "image",
+    "e-comm": "ecommerce",
 }
 
 
@@ -267,7 +275,7 @@ class BM25:
 
     def vocabulary(self):
         """All indexed terms, for suggestion/typo-recovery purposes."""
-        return list(self.idf.keys())
+        return self._vocab_list
 
 
 # ============ CSV / INDEX CACHE ============
@@ -308,7 +316,7 @@ def _get_bm25(filepath, search_cols, data):
 
 
 # ============ SEARCH FUNCTIONS ============
-def _search_csv(filepath, search_cols, output_cols, query, max_results):
+def _search_csv(filepath, search_cols, output_cols, query, max_results, fuzzy=True):
     """Core search function using BM25. Returns (results, bm25_or_none)."""
     if not filepath.exists():
         return [], None
@@ -322,7 +330,7 @@ def _search_csv(filepath, search_cols, output_cols, query, max_results):
         return [], None
 
     bm25 = _get_bm25(filepath, search_cols, data)
-    ranked = bm25.score(query)
+    ranked = bm25.score(query, fuzzy=fuzzy)
 
     results = []
     for idx, score in ranked[:max_results]:
@@ -335,28 +343,41 @@ def _search_csv(filepath, search_cols, output_cols, query, max_results):
 
 def _suggest_terms(bm25, query, limit=6):
     """Nearest known vocabulary terms for a query that returned 0 hits,
-    so the caller can retry instead of silently reporting nothing."""
+    so the caller can retry instead of silently reporting nothing.
+
+    Uses difflib similarity first (catches typos and near-misses ranked by
+    closeness), then falls back to a shared-prefix scan so short tokens the
+    ratio cutoff would reject still get a hint."""
     if bm25 is None:
         return []
-    query_tokens = set(bm25.tokenize(query))
+    query_tokens = [t for t in dict.fromkeys(bm25.tokenize(query))]  # de-duped, ordered
     if not query_tokens:
         return []
 
-    candidates = []
-    for term in bm25.vocabulary():
-        for qt in query_tokens:
-            if term.startswith(qt[:3]) or qt.startswith(term[:3]):
-                candidates.append(term)
-                break
-
-    # Stable de-dup, most frequent terms first (doc_freqs available via idf keys only,
-    # so just de-dup preserving discovery order).
-    seen = set()
+    vocab = bm25.vocabulary()
     ordered = []
-    for term in candidates:
+    seen = set()
+
+    def _add(term):
         if term not in seen:
             seen.add(term)
             ordered.append(term)
+
+    # 1. Closest terms by edit similarity, best matches first per query token.
+    for qt in query_tokens:
+        for term in difflib.get_close_matches(qt, vocab, n=3, cutoff=0.6):
+            _add(term)
+
+    # 2. Prefix fallback for anything still short of the limit.
+    if len(ordered) < limit:
+        for term in vocab:
+            for qt in query_tokens:
+                if term.startswith(qt[:3]) or qt.startswith(term[:3]):
+                    _add(term)
+                    break
+            if len(ordered) >= limit:
+                break
+
     return ordered[:limit]
 
 
@@ -452,7 +473,7 @@ def detect_domain(query, return_scores=False):
     return result
 
 
-def search(query, domain=None, max_results=MAX_RESULTS):
+def search(query, domain=None, max_results=MAX_RESULTS, fuzzy=True):
     """Main search function with auto-domain detection"""
     auto_detected = domain is None
     runner_up = None
@@ -465,7 +486,7 @@ def search(query, domain=None, max_results=MAX_RESULTS):
     if not filepath.exists():
         return {"error": f"File not found: {filepath}", "domain": domain}
 
-    results, bm25 = _search_csv(filepath, config["search_cols"], config["output_cols"], query, max_results)
+    results, bm25 = _search_csv(filepath, config["search_cols"], config["output_cols"], query, max_results, fuzzy=fuzzy)
 
     out = {
         "domain": domain,
@@ -483,7 +504,7 @@ def search(query, domain=None, max_results=MAX_RESULTS):
     return out
 
 
-def search_stack(query, stack, max_results=MAX_RESULTS):
+def search_stack(query, stack, max_results=MAX_RESULTS, fuzzy=True):
     """Search stack-specific guidelines"""
     if stack not in STACK_CONFIG:
         return {"error": f"Unknown stack: {stack}. Available: {', '.join(AVAILABLE_STACKS)}"}
@@ -493,7 +514,7 @@ def search_stack(query, stack, max_results=MAX_RESULTS):
     if not filepath.exists():
         return {"error": f"Stack file not found: {filepath}", "stack": stack}
 
-    results, bm25 = _search_csv(filepath, _STACK_COLS["search_cols"], _STACK_COLS["output_cols"], query, max_results)
+    results, bm25 = _search_csv(filepath, _STACK_COLS["search_cols"], _STACK_COLS["output_cols"], query, max_results, fuzzy=fuzzy)
 
     out = {
         "domain": "stack",
