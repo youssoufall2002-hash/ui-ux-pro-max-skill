@@ -1,0 +1,39 @@
+{
+  "skill_name": "design-tokens",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm kicking off a B2B invoicing dashboard for accountants. Before I build anything I want the foundational design variables set up — colors, fonts, spacing, the works — with a dark mode. Can you generate the tokens and a Tailwind theme into a ./design folder?",
+      "expected_output": "Runs the design-tokens generator with a dense/dashboard density, produces tokens.css (light + dark CSS custom properties, type scale, spacing, radii, shadows), tailwind.config.js, and a README, then summarizes the chosen style, palette, and font pairing.",
+      "files": [],
+      "assertions": [
+        {"text": "A tokens.css file is produced containing :root CSS custom properties"},
+        {"text": "tokens.css defines a dark theme via both prefers-color-scheme and a [data-theme=\"dark\"] or .dark selector"},
+        {"text": "A tailwind.config.js is produced that references the CSS variables (var(--color-...))"},
+        {"text": "The response summarizes the chosen palette and font pairing to the user"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "generate a tailwind theme + css variables for a calm meditation app, spacious feel, needs to look good in dark mode",
+      "expected_output": "Runs the generator with a low density (spacious), produces the token files with a soft/calm style, and reports the palette and dark theme.",
+      "files": [],
+      "assertions": [
+        {"text": "The spacing scale reflects a spacious (low-density) setting"},
+        {"text": "tokens.css includes a dark theme block"},
+        {"text": "A tailwind.config.js with fontFamily heading/body mapped to CSS variables is produced"}
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Set up the design system foundations (palette, type scale, radii, shadows, spacing) for a bold brutalist portfolio site for a graphic designer. I want it opinionated.",
+      "expected_output": "Runs the generator with high variance, producing brutalist tokens: zero radii and hard offset shadows, a dramatic type ratio, plus the CSS variables and Tailwind config.",
+      "files": [],
+      "assertions": [
+        {"text": "The radii tokens are 0px, matching a brutalist style"},
+        {"text": "The shadow tokens are hard offset shadows rather than soft blurs"},
+        {"text": "tokens.css and tailwind.config.js are both produced"}
+      ]
+    }
+  ]
+}
