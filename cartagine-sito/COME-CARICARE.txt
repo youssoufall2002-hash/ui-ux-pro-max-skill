@@ -26,5 +26,9 @@ DA AGGIORNARE QUANDO SERVE
   - Telefono: cerca "035788138"
 
 MAPPA
-  La mappa usa la chiave Google gia' presente sul tuo vecchio sito.
-  Se un giorno smettesse di funzionare, serve una nuova chiave Google Maps.
+  La mappa e' di OpenStreetMap e non richiede nessuna chiave ne' account:
+  funziona sempre, senza costi.
+  La vecchia chiave Google del sito precedente non e' piu' valida
+  ("The provided API key is invalid"), percio' non viene piu' usata.
+  Il pulsante "Apri in Google Maps" continua a funzionare: e' un semplice
+  collegamento, non richiede chiavi.
