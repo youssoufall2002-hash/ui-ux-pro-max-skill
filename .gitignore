@@ -54,3 +54,6 @@ ui-ux-pro-max-website/*
 
 cli/playwright-report/
 cli/test-results/
+
+# Skill-creator eval run scratch (transient test outputs, not part of any skill)
+.claude/skills/*-workspace/
