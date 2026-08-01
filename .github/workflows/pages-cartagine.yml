@@ -16,6 +16,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Nota: l'ambiente "github-pages" non viene dichiarato di proposito.
+  # Dichiarandolo, GitHub rifiuta il lavoro prima ancora di avviarlo, perche'
+  # per impostazione predefinita quell'ambiente accetta pubblicazioni solo dal
+  # ramo principale, mentre qui si lavora su un ramo di sviluppo.
   deploy:
     runs-on: ubuntu-latest
     steps:
