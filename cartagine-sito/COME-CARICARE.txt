@@ -26,9 +26,8 @@ DA AGGIORNARE QUANDO SERVE
   - Telefono: cerca "035788138"
 
 MAPPA
-  La mappa e' di OpenStreetMap e non richiede nessuna chiave ne' account:
-  funziona sempre, senza costi.
-  La vecchia chiave Google del sito precedente non e' piu' valida
-  ("The provided API key is invalid"), percio' non viene piu' usata.
-  Il pulsante "Apri in Google Maps" continua a funzionare: e' un semplice
-  collegamento, non richiede chiavi.
+  La mappa e' di Google e NON richiede nessuna chiave ne' account: funziona
+  cosi' com'e', senza costi. La vecchia chiave del sito precedente non e' piu'
+  valida ("The provided API key is invalid") e quindi non viene piu' usata.
+  I pulsanti "Apri in Google Maps" e "Indicazioni" puntano alla scheda
+  ufficiale del locale.
