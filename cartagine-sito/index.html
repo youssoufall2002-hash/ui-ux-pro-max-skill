@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="canonical" href="https://www.cartaginepizza.it/">
+<title>Cartagine Pizza — Pizzeria & Kebab · Caprino Bergamasco</title>
+<meta name="description" content="Cartagine Pizza a Caprino Bergamasco (BG): pizza nel forno a legna e kebab dal 2006. Asporto e consegna a domicilio. Tel. 035 788138.">
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Cartagine Pizza — Pizzeria &amp; Kebab a Caprino Bergamasco">
+<meta property="og:description" content="Pizza nel forno a legna e kebab dal 2006. Asporto e consegna a domicilio. Tel. 035 788138.">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#9E3B2C">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Cartagine Pizza",
+  "servesCuisine": ["Pizza", "Kebab", "Italiana"],
+  "priceRange": "€€",
+  "telephone": "+39 035 788138",
+  "foundingDate": "2006",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Vittorio Emanuele, 11",
+    "postalCode": "24030",
+    "addressLocality": "Caprino Bergamasco",
+    "addressRegion": "BG",
+    "addressCountry": "IT"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 45.7460253, "longitude": 9.4821556 },
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJmd_U0fOrhkcR_OhrGbZLaU4",
+  "acceptsReservations": true,
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday"], "opens": "11:30", "closes": "14:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday"], "opens": "17:30", "closes": "22:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:30", "closes": "14:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "17:30", "closes": "23:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "11:30", "closes": "14:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "18:00", "closes": "23:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday","Monday"], "opens": "17:30", "closes": "22:30" }
+  ]
+}
+</script>
+<style>
+@font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 800;font-style:normal;font-display:swap}
+</style>
+<style>
+
+:root{
+  --sand:#F4EDDF; --sand-2:#EBE1CE; --card:#FFFFFF;
+  --ink:#2E1C16; --ink-soft:#6F5C51;
+  --red:#9E3B2C; --red-2:#7E2E22;
+  --ember:#BE6A38; --deep:#3A241C; --deep-2:#2A1912;
+  --saffron:#B08A48; --line:#E3D6BE;
+  --shadow:0 18px 44px -22px rgba(58,20,15,.42);
+  --maxw:1120px;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --sand:#191009; --sand-2:#221610; --card:#2A1B14;
+    --ink:#F1E5D6; --ink-soft:#BFA898; --red:#CB6A57; --red-2:#A84E3D;
+    --ember:#CE8355; --deep:#140C08; --deep-2:#0C0705; --saffron:#CDA766; --line:#3A281F;
+    --shadow:0 18px 44px -20px rgba(0,0,0,.62);
+  }
+}
+:root[data-theme="light"]{
+  --sand:#F4EDDF; --sand-2:#EBE1CE; --card:#FFFFFF; --ink:#2E1C16; --ink-soft:#6F5C51;
+  --red:#9E3B2C; --red-2:#7E2E22; --ember:#BE6A38; --deep:#3A241C; --deep-2:#2A1912;
+  --saffron:#B08A48; --line:#E3D6BE; --shadow:0 18px 44px -22px rgba(58,20,15,.42);
+}
+:root[data-theme="dark"]{
+  --sand:#191009; --sand-2:#221610; --card:#2A1B14; --ink:#F1E5D6; --ink-soft:#BFA898;
+  --red:#CB6A57; --red-2:#A84E3D; --ember:#CE8355; --deep:#140C08; --deep-2:#0C0705;
+  --saffron:#CDA766; --line:#3A281F; --shadow:0 18px 44px -20px rgba(0,0,0,.62);
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--sans);
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif);font-weight:900;line-height:1.03;
+  letter-spacing:-.015em;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{font-weight:700;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+
+/* NAV */
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.crest{width:44px;height:44px;border-radius:10px;flex:none;display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--red),var(--red-2));color:#F4EDDF;
+  font-family:var(--serif);font-weight:900;font-size:1.4rem;box-shadow:var(--shadow)}
+.brand b{font-family:var(--serif);font-weight:900;font-size:1.26rem;letter-spacing:-.02em;display:block;line-height:1}
+.brand small{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+@media(max-width:880px){.nav-links{display:none}}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(110% 80% at 88% -10%, color-mix(in srgb,var(--ember) 26%,transparent), transparent 55%),
+  var(--sand)}
+.hero-in{max-width:var(--maxw);margin:0 auto;padding:60px 22px 46px;
+  display:grid;grid-template-columns:1.02fr .98fr;gap:46px;align-items:center}
+.hero h1{font-size:clamp(2.9rem,6.6vw,5rem)}
+.hero h1 .fire{color:var(--red);font-style:italic;font-weight:400}
+.hero .lead{margin:22px 0 0;font-size:1.13rem;max-width:46ch;color:var(--ink-soft)}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:700;
+  padding:14px 24px;border-radius:999px;font-size:1.02rem;transition:transform .15s ease,background .15s ease;cursor:pointer;border:0}
+.btn:active{transform:translateY(1px)}
+.btn-fire{background:var(--red);color:#fff;box-shadow:0 12px 26px -10px var(--red)}
+.btn-fire:hover{background:var(--red-2)}
+.btn-ghost{background:transparent;border:1.5px solid var(--deep);color:var(--deep)}
+:root[data-theme="dark"] .btn-ghost{border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--deep);color:#F4EDDF}
+.hero-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;background:var(--deep)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo .badge{position:absolute;left:16px;bottom:16px;background:color-mix(in srgb,var(--deep) 82%,transparent);
+  backdrop-filter:blur(6px);color:#F4EDDF;padding:9px 15px;border-radius:16px;font-size:.85rem;font-weight:700;
+  display:flex;align-items:center;gap:8px}
+.hero-photo .est{position:absolute;right:16px;top:16px;background:var(--saffron);color:#2E1C16;
+  padding:8px 14px;border-radius:10px;font-family:var(--serif);font-weight:900;font-size:.95rem;line-height:1.05;text-align:center}
+.hero-photo .est small{display:block;font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:880px){.hero-in{grid-template-columns:1fr;padding-top:38px}.hero-photo{order:-1;aspect-ratio:16/10}}
+
+/* SITE HEAD + MENU */
+.sitehead{position:sticky;top:0;z-index:50;padding:14px 0;border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--sand) 92%,transparent);backdrop-filter:blur(12px)}
+.sitehead .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.mainnav{display:flex;gap:24px;align-items:center}
+.mainnav a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink);opacity:.8}
+.mainnav a:hover{opacity:1;color:var(--red)}
+.mainnav .navtel{color:var(--red);opacity:1;font-weight:700;font-variant-numeric:tabular-nums}
+@media(max-width:880px){.mainnav .navtel{display:none}}
+section[id],div[id]{scroll-margin-top:104px}
+@media(max-width:820px){
+  .sitehead{padding:10px 0}
+  .sitehead .wrap{flex-direction:column;align-items:flex-start;gap:8px}
+  .sitehead .crest{width:38px;height:38px;font-size:1.2rem}
+  .sitehead .brand b{font-size:1.1rem}
+  .mainnav{width:100%;overflow-x:auto;gap:20px;padding-bottom:2px;scrollbar-width:none}
+  .mainnav::-webkit-scrollbar{display:none}
+  .mainnav a{white-space:nowrap;font-size:.92rem}
+  section[id],div[id]{scroll-margin-top:120px}
+}
+
+/* PHOTO BAND */
+.band{position:relative;height:clamp(210px,30vw,380px);overflow:hidden;border-radius:16px;background:var(--deep)}
+.band img{width:100%;height:100%;object-fit:cover}
+
+/* SECTION */
+section.blk{padding:64px 0}
+.head{max-width:640px;margin-bottom:32px}
+.head h2{font-size:clamp(2.1rem,4.4vw,3.1rem);margin-top:12px}
+.head p{margin-top:14px;color:var(--ink-soft);font-size:1.06rem}
+
+/* STORY */
+@media(max-width:880px){.story{grid-template-columns:1fr;gap:30px}}
+
+/* STORY */
+.story-solo{max-width:760px}
+.story-solo h2{font-size:clamp(2rem,4.6vw,3.1rem)}
+.story-solo p{color:var(--ink-soft);margin-top:16px}
+
+/* SPECIALTIES */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.spec{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
+.spec:hover{transform:translateY(-5px);box-shadow:0 26px 50px -24px rgba(58,20,15,.5)}
+.spec .top{height:180px;overflow:hidden;position:relative}
+.spec .top img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.spec:hover .top img{transform:scale(1.06)}
+.spec .top .lab{position:absolute;left:12px;top:12px;background:var(--red);color:#fff;
+  font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:16px;z-index:1}
+.spec .body{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.spec h3{font-size:1.32rem}
+.spec p{color:var(--ink-soft);font-size:.95rem;flex:1}
+.spec a{margin-top:6px;align-self:flex-start;color:var(--red);font-weight:700;text-decoration:none;font-size:.95rem;cursor:pointer}
+.spec a:hover{text-decoration:underline}
+@media(max-width:880px){.cards3{grid-template-columns:1fr}}
+
+/* MENU */
+.menu-sec{background:var(--sand-2)}
+.info-sec{background:var(--sand-2)}
+/* gerarchia: il menu e' il cuore della pagina */
+.menu-sec .head h2{font-size:clamp(2.6rem,5.4vw,4rem)}
+.head h2{font-size:clamp(1.9rem,3.6vw,2.6rem)}
+.story-solo h2{font-size:clamp(1.9rem,3.6vw,2.6rem)}
+/* respiro maggiore fra un blocco e l'altro */
+.menu-sec,.info-sec{padding:78px 0}
+.prow .n small{display:block;font-weight:400;color:var(--ink-soft);font-size:.82rem;margin-top:2px}
+@media(max-width:820px){.mcats{grid-template-columns:1fr 1fr}.plist{grid-template-columns:1fr}}
+@media(max-width:520px){.mcats{grid-template-columns:1fr}}
+.tabs{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:30px}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;
+  padding:10px 18px;border-radius:999px;font-family:var(--sans);font-weight:700;font-size:.92rem;transition:.15s}
+.tab:hover{border-color:var(--red)}
+.tab.on{background:var(--red);color:#fff;border-color:var(--red)}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+.mrow{display:flex;justify-content:space-between;gap:18px;align-items:baseline;padding:13px 4px;border-bottom:1px solid var(--line)}
+.mrow .nm{font-weight:700;font-size:1.02rem}
+.mrow .nm .ds{display:block;font-weight:400;color:var(--ink-soft);font-size:.84rem;margin-top:3px;line-height:1.4}
+.mrow .pr{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;font-family:var(--serif);color:var(--red);font-size:1.02rem}
+.note{margin-top:22px;font-size:.9rem;color:var(--ink-soft)}
+@media(max-width:820px){.menu-grid{grid-template-columns:1fr;gap:0}}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gal figure{margin:0;position:relative;overflow:hidden;border-radius:16px;cursor:pointer;box-shadow:var(--shadow);aspect-ratio:4/3}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 14px;color:#fff;font-weight:700;font-size:.92rem;
+  background:linear-gradient(transparent,rgba(20,7,5,.8));opacity:0;transition:opacity .25s ease}
+.gal figure:hover figcaption{opacity:1}
+@media(max-width:820px){.gal{grid-template-columns:repeat(2,1fr);gap:12px}}
+@media(max-width:520px){.gal{grid-template-columns:1fr}}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:90;background:rgba(15,6,4,.92);display:none;align-items:center;justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb img{max-width:92vw;max-height:86vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb button{position:absolute;top:20px;right:24px;background:transparent;border:0;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1}
+
+/* REVIEWS */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.rev .stars{color:var(--saffron);letter-spacing:3px;font-size:1.05rem}
+.rev p{margin:14px 0;font-family:var(--serif);font-style:italic;font-size:1.12rem;line-height:1.4}
+.rev b{color:var(--ink-soft);font-weight:700;font-size:.92rem}
+.rev-cta{display:flex;justify-content:center;margin-top:30px}
+@media(max-width:880px){.rev-grid{grid-template-columns:1fr}}
+
+/* INFO */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:var(--shadow)}
+.panel h3{font-family:var(--serif);font-size:1.4rem;margin-bottom:8px}
+.hours{list-style:none;padding:0;margin:14px 0 0}
+.hours li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.97rem}
+.hours li:last-child{border-bottom:0}
+.hours .d{font-weight:700}
+.hours .t{font-variant-numeric:tabular-nums;color:var(--ink-soft);text-align:right}
+.hours li.today{background:color-mix(in srgb,var(--saffron) 18%,transparent);margin:0 -14px;padding:11px 14px;border-radius:10px;border-bottom:0}
+.contact-row{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+.contact-row:last-child{border-bottom:0}
+.contact-row .ic{font-size:1.3rem;flex:none;width:30px;text-align:center}
+.contact-row b{display:block}
+.contact-row span{color:var(--ink-soft);font-size:.93rem}
+.contact-row a{color:var(--red);text-decoration:none;font-weight:700}
+.map-card{grid-column:1 / -1;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);
+  position:relative;min-height:300px;color:#F4EDDF;display:flex;align-items:flex-end;background:var(--deep)}
+.map-card .map-img{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.map-card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;pointer-events:none;background:linear-gradient(180deg,rgba(30,18,12,0),rgba(30,18,12,.92))}
+.map-card .mc-in{position:relative;z-index:3;padding:26px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;width:100%}
+.map-card b{font-family:var(--serif);font-size:1.4rem;display:block}
+.map-card span{color:#E7CDC0;font-size:.95rem}
+@media(max-width:880px){.info{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{background:var(--deep-2);color:#EAD6C8;padding:56px 0 120px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px;align-items:start}
+footer h4{font-family:var(--serif);color:#F4EDDF;font-size:1.3rem;margin:0 0 12px}
+footer p,footer li{font-size:.94rem;color:#D9C1B4;line-height:1.7}
+footer ul{list-style:none;padding:0;margin:0}
+footer a{color:var(--saffron);text-decoration:none}
+.foot-bottom{border-top:1px solid rgba(247,239,225,.16);margin-top:38px;padding-top:22px;
+  font-size:.8rem;color:#B9A093;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+@media(max-width:880px){.foot-grid{grid-template-columns:1fr;gap:26px}}
+
+/* DOCK */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;padding:11px 14px calc(11px + env(safe-area-inset-bottom));
+  background:color-mix(in srgb,var(--sand) 92%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.dock a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px;border-radius:10px;font-weight:800;text-decoration:none;font-size:1rem}
+.dock .c{background:var(--red);color:#fff}
+.dock .m{background:var(--deep);color:#F4EDDF}
+@media(max-width:880px){.dock{display:flex}}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px;border-radius:6px}
+</style>
+
+
+</head>
+<body>
+<header class="sitehead">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Cartagine Pizza — inizio pagina">
+      <span class="crest">C</span>
+      <span><b>Cartagine</b><small>Pizza &amp; Kebab</small></span>
+    </a>
+    <nav class="mainnav" aria-label="Menu di navigazione">
+      <a href="#storia">Storia</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#info">Orari</a>
+      <a class="navtel" href="tel:035788138">035 788138</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-in">
+    <div>
+      <p class="eyebrow reveal">Caprino Bergamasco · dal 2006</p>
+      <h1 class="reveal">Pizza nel forno<br>a legna &amp; <span class="fire">kebab</span>.</h1>
+      <p class="lead reveal">Pizze classiche, farcite e speciali cotte nel forno a legna, e il kebab preparato come tradizione. In sala, d'asporto o consegnate a casa tua.</p>
+    </div>
+    <div class="hero-photo reveal">
+      <img id="heroImg" alt="Il forno a legna di Cartagine Pizza">
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="band">
+    <img data-img="pizza" alt="Pizza appena sfornata da Cartagine">
+  </div>
+</div>
+
+<section class="blk" id="storia">
+  <div class="wrap">
+    <div class="story-solo">
+      <h2 class="reveal">Benvenuti a Cartagine.</h2>
+      <p class="reveal">Abbiamo aperto nel 2006 e siamo tra le prime pizzerie ad aver portato il kebab sul territorio. Da noi puoi gustare pizze cotte nel <b>forno a legna</b> e provare il nostro kebab nella comoda sala TV con 30 coperti.</p>
+      <p class="reveal">Siamo aperti anche a pranzo con focacce, piatti freddi, insalate, fritti misti… e naturalmente la nostra pizza, preparata con ingredienti freschi e prodotti in Italia.</p>
+    </div>
+  </div>
+</section>
+
+<section class="blk menu-sec" id="menu">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Il nostro menu</h2>
+      <p>Scegli una categoria. Per le pizze il prezzo è <b>Normale / Famiglia</b>. Supplemento ingredienti da € 1,00 a € 2,00.</p>
+    </div>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div id="menuBody"></div>
+    <p class="note">🌱 Tante opzioni vegetariane · Prezzi indicativi, verifica in sede o al telefono.</p>
+  </div>
+</section>
+
+<section class="blk" id="gallery">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Gallery</h2>
+      <p>Il forno a legna, la sala accogliente e i nostri piatti. Clicca su una foto per ingrandirla.</p>
+    </div>
+    <div class="gal reveal" id="gal"></div>
+  </div>
+</section>
+
+<section class="blk" id="recensioni">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Recensioni</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Una delle migliori pizzerie della zona."</p><b>— Gabriele</b></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Pizze e kebab spettacolari. Locale accogliente e pulito. Consigliato!"</p><b>— Riccardo</b></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Ottimo servizio, pizza buonissima. La consiglio a tutti."</p><b>— Anna</b></div>
+    </div>
+    <div class="rev-cta reveal">
+      <a class="btn btn-fire" href="https://search.google.com/local/writereview?placeid=ChIJmd_U0fOrhkcR_OhrGbZLaU4" target="_blank" rel="noopener">Lascia una recensione su Google</a>
+    </div>
+  </div>
+</section>
+
+<section class="blk info-sec" id="info">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Dove siamo &amp; orari</h2>
+    </div>
+    <div class="info">
+      <div class="panel reveal">
+        <h3>Orari di apertura</h3>
+        <ul class="hours" id="hours"></ul>
+      </div>
+      <div class="panel reveal">
+        <h3>Contatti</h3>
+        <div class="contact-row"><div><b>Indirizzo</b><span>Via Vittorio Emanuele, 11 — 24030 Caprino Bergamasco (BG)</span></div></div>
+        <div class="contact-row"><div><b>Telefono &amp; ordini</b><a href="tel:035788138">035 788138</a></div></div>
+        <div class="contact-row"><div><b>Consegna a domicilio</b><span>Disponibile — chiedi al telefono la zona di consegna.</span></div></div>
+      </div>
+      <div class="map-card reveal">
+        <iframe class="map-img" title="Mappa: Cartagine Pizza, Caprino Bergamasco" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZI5F_k6S1k46ujh0SNrapM89f7mJxd30&amp;q=place_id:ChIJmd_U0fOrhkcR_OhrGbZLaU4"></iframe>
+        <div class="mc-in">
+          <div><b>Cartagine Pizza</b><span>Via Vittorio Emanuele, 11 · Caprino Bergamasco (BG)</span></div>
+          <a class="btn btn-fire" href="https://www.google.com/maps/place/?q=place_id:ChIJmd_U0fOrhkcR_OhrGbZLaU4" target="_blank" rel="noopener">Apri in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:14px">
+          <span class="crest">C</span>
+          <span><b style="color:#F4EDDF">Cartagine</b><small style="color:#C9AEA0">Pizza &amp; Kebab</small></span>
+        </div>
+        <p>Pizza nel forno a legna, kebab, focacce e piatti freddi. Aperti anche a pranzo.</p>
+      </div>
+      <div>
+        <h4>Esplora</h4>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#recensioni">Recensioni</a></li>
+          <li><a href="#info">Dove siamo &amp; orari</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ordina</h4>
+        <ul>
+          <li>Tel. <a href="tel:035788138">035 788138</a></li>
+          <li>Asporto &amp; consegna a domicilio</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Cartagine Pizza di Belouaer Mourad · P.IVA 03302050160</span>
+      <span>© <span id="yr"></span> Cartagine Pizza — Tutti i diritti riservati</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Azioni rapide">
+  <a class="c" href="tel:035788138">Chiama</a>
+  <a class="m" href="https://www.google.com/maps/dir/?api=1&destination=Via+Vittorio+Emanuele+11+Caprino+Bergamasco+BG" target="_blank" rel="noopener">Indicazioni</a>
+</nav>
+
+<div class="lb" id="lb"><button aria-label="Chiudi">×</button><img id="lbImg" alt=""></div>
+
+<script>const IMG={"hero": "assets/img/hero.jpg", "pizza": "assets/img/pizza.jpg", "kebab": "assets/img/kebab.jpg", "fritti": "assets/img/fritti.jpg", "sala1": "assets/img/sala1.jpg", "counter": "assets/img/counter.jpg", "oven": "assets/img/oven.jpg", "ingresso": "assets/img/ingresso.jpg"};</script>
+<script>
+document.getElementById('heroImg').src=IMG.hero;
+document.querySelectorAll('[data-img]').forEach(el=>el.src=IMG[el.dataset.img]);
+
+const MENU={
+  classiche:{label:"Pizze Classiche",two:true,items:[
+    ["Marinara","4,00","10,00","pomodoro, aglio, origano, olio",1],
+    ["Margherita","6,00","14,00","pomodoro, mozzarella, origano",1],
+    ["Biancaneve","6,00","14,00","mozzarella, origano",1],
+    ["Pugliese","6,50","15,00","pomodoro, mozzarella, cipolle, origano",1],
+    ["Prosciutto","7,00","16,00","pomodoro, mozzarella, prosciutto"],
+    ["Napoli","7,00","16,00","pomodoro, mozzarella, acciughe, origano"],
+    ["Crudo","7,00","17,00","pomodoro, mozzarella, crudo"],
+    ["Speck","7,00","17,00","pomodoro, mozzarella, speck"],
+    ["Tonno","7,00","16,00","pomodoro, mozzarella, tonno"],
+    ["Caprese","7,00","16,00","mozzarella, pomodoro fresco, basilico",1],
+    ["Wurstel","7,00","16,00","pomodoro, mozzarella, wurstel"],
+    ["Calzone liscio","7,00","17,00","pomodoro, mozzarella, prosciutto"],
+    ["Salame piccante","7,00","17,00","pomodoro, mozzarella, salame piccante"],
+    ["Romana","7,50","17,00","pomodoro, mozzarella, acciughe, capperi, origano"],
+    ["Calzone speciale","7,50","16,00","pomodoro, mozzarella, spinaci, ricotta",1],
+    ["Contadina","7,50","16,50","pomodoro, mozzarella, spinaci, ricotta",1],
+    ["Bufala","7,50","18,00","pomodoro, bufala",1],
+    ["Prosciutto e funghi","8,00","17,00","pomodoro, mozzarella, prosciutto, funghi"],
+    ["Siciliana","8,00","20,00","pomodoro, mozzarella, acciughe, capperi, olive, origano"],
+    ["Tonno e cipolle","8,00","18,00","pomodoro, mozzarella, tonno, cipolle"],
+    ["Crudo e rucola","8,00","17,00","pomodoro, mozzarella, crudo, rucola"],
+    ["Porcini","8,00","20,00","pomodoro, mozzarella, porcini",1],
+    ["Calzone farcito","8,00","18,00","pomodoro, mozzarella, prosciutto, carciofi, funghi"],
+    ["Capricciosa","8,50","18,00","pomodoro, mozzarella, prosciutto, carciofi, funghi, olive"],
+    ["4 Stagioni","8,50","18,00","pomodoro, mozzarella, prosciutto, carciofi, funghi, olive"],
+    ["4 Formaggi","8,50","17,00","pomodoro, mozzarella, formaggi misti",1],
+    ["Ortolana","8,50","18,00","pomodoro, mozzarella, verdure grill",1],
+    ["Frutti di mare","8,50","20,00","pomodoro, mozzarella, frutti di mare"],
+  ]},
+  speciali:{label:"Pizze Speciali",two:true,items:[
+    ["Deliziosa","7,00","18,00","mozzarella, pere, zola",1],
+    ["Wurstel e patatine","7,00","17,00","pomodoro, mozzarella, wurstel, patatine"],
+    ["Patatina","7,00","15,00","pomodoro, mozzarella, patatine",1],
+    ["Asparagi","7,00","16,00","pomodoro, mozzarella, asparagi, uovo, grana",1],
+    ["Cacio e pepe","7,50","16,00","pomodoro, mozzarella, cacio, pepe, speck"],
+    ["Tirolese","7,50","16,00","pomodoro, mozzarella, speck, spinaci, grana a scaglie"],
+    ["Onda verde","7,50","16,00","mozzarella, gamberetti, rucola"],
+    ["Braccio di ferro","7,50","17,00","pomodoro, mozzarella, spinaci, uovo, grana",1],
+    ["Salsiccia","7,50","17,50","pomodoro, mozzarella, salsiccia"],
+    ["Zola e noci","7,50","18,00","pomodoro, mozzarella, zola, noci, soncino",1],
+    ["Parmigiana","7,50","19,00","pomodoro, mozzarella, melanzane, grana",1],
+    ["Occhio di bue","7,50","17,00","pomodoro, mozzarella, prosciutto, uova"],
+    ["Fumè","8,00","18,00","pomodoro, mozzarella, scamorza, speck"],
+    ["Primavera","8,00","19,00","pomodoro, mozzarella, ricotta, insalata mista",1],
+    ["Fumo di Londra","8,00","18,00","pomodoro, mozzarella, speck, scamorza, radicchio"],
+    ["Genovese","8,00","18,00","pomodoro, mozzarella, pesto, tarantini",1],
+    ["Brie","8,00","20,00","pomodoro, mozzarella, speck, brie"],
+    ["Strong","8,50","17,00","pomodoro, mozzarella, salame piccante, wurstel, salsiccia, origano"],
+    ["Brianzola","8,50","19,00","pomodoro, mozzarella, uova, salsiccia, grana"],
+    ["Messicana","8,50","19,00","pomodoro, mozzarella, salsiccia, fagioli, mais"],
+    ["Zingara","8,50","18,00","pomodoro, mozzarella, salame piccante, zola"],
+    ["PSW","8,50","18,00","pomodoro, mozzarella, prosciutto, salame piccante, wurstel"],
+    ["Incartata","8,50","20,00","mozzarella, brie, pomodoro fresco, speck"],
+    ["Dègage","8,50","18,50","pomodoro, mozzarella, tonno, cipolle, uova, pomodoro fresco"],
+    ["Delicata","8,50","19,00","pomodoro, mozzarella, salmone, panna"],
+    ["Atomica","8,50","19,00","prosciutto, salame piccante, uovo sbattuto, grana"],
+    ["Friarielli salsiccia","8,50","18,00","mozzarella, cime di rapa, salsiccia"],
+    ["Friarielli kebab","8,50","18,00","mozzarella, cime di rapa, carne kebab"],
+    ["Cartagine","9,00","19,00","pomodoro, salmone, soncino, tarantini, noci"],
+    ["Carpaccio","9,00","18,00","pomodoro, mozzarella, bresaola, rucola, grana a scaglie"],
+    ["Valtellina","9,00","19,00","pomodoro, mozzarella, porcini, bresaola, grana a scaglie"],
+    ["Inferno","9,00","21,00","pomodoro, mozzarella, prosciutto, pesto, salame piccante, panna"],
+    ["Americana","9,00","18,50","pomodoro, mozzarella, tonno, insalata mista, maionese"],
+    ["Diavola","9,00","18,50","pomodoro, mozzarella, salame piccante, peperoni, olive"],
+    ["Texana","9,00","18,00","pomodoro, mozzarella, peperoncino, cipolle, salame piccante, fagioli"],
+    ["Caprino pizza","9,00","21,00","pomodoro, mozzarella, panna, prosciutto, salsiccia"],
+    ["Oceano","9,00","20,00","pomodoro, mozzarella, frutti di mare, gamberetti, salmone"],
+    ["Vulcano","9,00","20,00","salsiccia, zola, speck, salame piccante, prosciutto, grana"],
+    ["Pizza Kebab","9,00","20,00","insalata verde, cipolle, pomodoro fresco, kebab, salse"],
+    ["Paradiso","9,50","22,00","pomodoro, bufala, rucola, grana a scaglie, tarantini"],
+    ["Incubo","9,50","20,00","salsiccia, salame piccante, zola, cipolle"],
+    ["Fattoria","9,50","23,00","pomodoro, mozzarella, funghi porcini, taleggio, rucola"],
+    ["Bergamasca","9,50","24,00","pomodoro, mozzarella, zola, brie, funghi porcini"],
+    ["Rustica","9,50","23,00","pomodoro, bufala, tonno, rucola, grana a scaglie"],
+    ["Voglia","9,50","23,00","pomodoro, mozzarella, panna, funghi porcini, speck"],
+    ["Sfiziosa","9,50","23,00","funghi porcini, zola, rucola, grana"],
+    ["Mare e monti","10,00","22,00","pomodoro, mozzarella, frutti di mare, funghi porcini"],
+    ["Pantera Rosa","10,00","23,00","salmone, gamberetti, rucola, grana a scaglie"],
+  ]},
+  giganti:{label:"Pizze Giganti",two:false,items:[
+    ["Ossigeno","22,00","","Pizza gigante da condividere"],
+    ["Quinta Dimensione","22,00","","Pizza gigante da condividere"],
+    ["Kriptonite","22,00","","Pizza gigante da condividere"],
+    ["Atomo","22,00","","Pizza gigante da condividere"],
+    ["Sodio","20,00","","Pizza gigante da condividere"],
+    ["Potassio","20,00","","Pizza gigante da condividere"],
+  ]},
+  kebab:{label:"Kebab",two:false,items:[
+    ["Kebab","6,00","","pane, insalata verde, pomodoro fresco, cipolle, kebab, salse piccante/rosa/yogurt"],
+    ["Piatto Kebab","8,00","","insalata verde, pomodoro fresco, cipolle, kebab, salse piccante/rosa/yogurt"],
+    ["Pizza Kebab","9,00","","insalata verde, pomodoro fresco, cipolle, kebab, salse"],
+    ["Misto fritto","5,00","","panzerotti, arancini, mozzarelline"],
+  ]},
+  focacce:{label:"Focacce",two:false,items:[
+    ["Semplice","2,50","","olio, rosmarino, origano, salvia",1],
+    ["Acciughe, olive, origano","4,00","","focaccia farcita"],
+    ["Grana e rucola","5,00","","focaccia farcita",1],
+    ["Pomodoro fresco e origano","5,00","","focaccia farcita",1],
+    ["Speck e brie","5,50","","focaccia farcita"],
+    ["Speck e scamorza","5,50","","focaccia farcita"],
+    ["Grana, rucola e tarantini","5,50","","focaccia farcita"],
+    ["Verdure","5,50","","focaccia farcita",1],
+    ["Focaccia Kebab","7,00","","con carne kebab e salse"],
+    ["Focaccia Luca","7,00","","specialità della casa"],
+  ]},
+  fritti:{label:"Fritti & Freddi",two:false,items:[
+    ["Patatine fritte","3,00","","",1],
+    ["Fritto misto","5,00","","panzerotti, arancini, mozzarelline"],
+    ["Caprese","6,50","","mozzarella fresca, pomodoro fresco, olio, basilico",1],
+    ["Carpaccio di bresaola","8,00","","rucola, bresaola, grana a scaglie, olio, limone"],
+    ["Insalatona","8,00","","verde, rucola, soncino, radicchio, mais, olive, mozzarella, tonno, carciofi, grana, tarantini"],
+    ["Piatto Kebab","8,00","","pane fresco, insalata, pomodoro, cipolle, kebab, salse"],
+  ]},
+};
+const tabsEl=document.getElementById('tabs'), bodyEl=document.getElementById('menuBody');
+const keys=Object.keys(MENU); let cur=keys[0];
+function render(k){
+  cur=k;
+  [...tabsEl.children].forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+  const m=MENU[k]; let h='<div class="menu-grid">';
+  m.items.forEach(it=>{
+    const [nm,p1,p2,ds,veg]=it;
+    const price=(m.two&&p2)?`${p1} / ${p2}`:`${p1}`;
+    h+=`<div class="mrow"><div class="nm">${nm}${veg?' 🌱':''}${ds?`<span class="ds">${ds}</span>`:''}</div><div class="pr">${price}€</div></div>`;
+  });
+  bodyEl.innerHTML=h+'</div>';
+}
+keys.forEach(k=>{const b=document.createElement('button');b.className='tab';b.dataset.k=k;b.textContent=MENU[k].label;b.setAttribute('role','tab');b.onclick=()=>render(k);tabsEl.appendChild(b);});
+render(cur);
+document.querySelectorAll('[data-tab]').forEach(a=>a.addEventListener('click',()=>{render(a.dataset.tab);document.getElementById('menu').scrollIntoView({behavior:'smooth'});}));
+
+// gallery
+const GAL=[["oven","Il forno a legna"],["ingresso","La nostra sala"],["kebab","Il kebab"],["fritti","I fritti"],["sala1","Il locale"],["counter","Il bancone"]];
+const galEl=document.getElementById('gal');
+GAL.forEach(([k,cap,cls])=>{
+  const fig=document.createElement('figure'); if(cls)fig.className=cls;
+  fig.innerHTML=`<img src="${IMG[k]}" alt="${cap}" loading="lazy"><figcaption>${cap}</figcaption>`;
+  fig.onclick=()=>{document.getElementById('lbImg').src=IMG[k];document.getElementById('lb').classList.add('on');};
+  galEl.appendChild(fig);
+});
+const lb=document.getElementById('lb');
+lb.onclick=()=>lb.classList.remove('on');
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on');});
+
+// hours
+const H=[["Lunedì","17:30–22:30"],["Martedì","11:30–14:00 · 17:30–22:30"],["Mercoledì","11:30–14:00 · 17:30–22:30"],["Giovedì","11:30–14:00 · 17:30–22:30"],["Venerdì","11:30–14:00 · 17:30–23:00"],["Sabato","11:30–14:00 · 18:00–23:30"],["Domenica","17:30–22:30"]];
+const hoursEl=document.getElementById('hours'); const today=(new Date().getDay()+6)%7;
+H.forEach((d,i)=>{const li=document.createElement('li');if(i===today)li.className='today';li.innerHTML=`<span class="d">${d[0]}${i===today?' · oggi':''}</span><span class="t">${d[1]}</span>`;hoursEl.appendChild(li);});
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

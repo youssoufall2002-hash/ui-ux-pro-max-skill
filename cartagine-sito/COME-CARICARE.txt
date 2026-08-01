@@ -1,0 +1,30 @@
+CARTAGINE PIZZA - SITO NUOVO
+============================
+
+CONTENUTO
+  index.html            la pagina del sito
+  assets/img/           le fotografie
+  assets/fonts/         i caratteri tipografici
+  assets/favicon.svg    l'icona che appare nella scheda del browser
+
+COME METTERLO ONLINE
+  1. Entra nel pannello del tuo hosting (o via FTP).
+  2. Vai nella cartella del sito (di solito si chiama public_html oppure www).
+  3. FAI PRIMA UNA COPIA DI SICUREZZA dei file attuali: scaricali sul computer.
+  4. Carica index.html e la cartella assets, sostituendo i file esistenti.
+  5. Apri www.cartaginepizza.it e controlla che sia tutto a posto.
+
+NOTA SUI VECCHI FILE
+  Il sito precedente era fatto con Mobirise e aveva anche menu.html,
+  gallery.html e la cartella assets vecchia. Ora e' tutto in una pagina sola.
+  Puoi lasciare i vecchi file dove sono (non danno fastidio) oppure
+  cancellarli, ma SOLO dopo aver verificato che il sito nuovo funzioni.
+
+DA AGGIORNARE QUANDO SERVE
+  - Prezzi e piatti: sono dentro index.html, cerca la parola "MENU="
+  - Orari: sempre in index.html, cerca "const H="
+  - Telefono: cerca "035788138"
+
+MAPPA
+  La mappa usa la chiave Google gia' presente sul tuo vecchio sito.
+  Se un giorno smettesse di funzionare, serve una nuova chiave Google Maps.
