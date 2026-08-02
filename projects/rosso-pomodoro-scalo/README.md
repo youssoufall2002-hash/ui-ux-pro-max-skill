@@ -3,9 +3,10 @@
 Sito web per la pizzeria napoletana **Rosso Pomodoro Scalo Milano**.
 Costruito con **Next.js 14 (App Router)**, **React** e **Tailwind CSS**.
 
-Stile: *caldo e tradizionale* — rosso pomodoro, oro/crosta al forno, panna, con i font
-**Playfair Display** (titoli) e **Karla** (testo). Palette e tipografia generate con la skill
-[UI/UX Pro Max](../../).
+Stile: *insegna vintage napoletana* — verde bottiglia, crema, rosso e giallo vintage, con
+i font condensati da manifesto **Anton** (titoli), **Oswald** (etichette) e **Fraunces**
+(testo old-style). Impaginazione a poster con cornici, timbri, badge, striscia a scorrimento
+e menù con puntini di guida. Palette e tipografia generate con la skill [UI/UX Pro Max](../../).
 
 ## Sezioni
 

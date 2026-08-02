@@ -8,10 +8,11 @@ import {
   MailIcon,
   InstagramIcon,
   ArrowRightIcon,
+  StarIcon,
 } from "./Icons";
 
 const inputBase =
-  "mt-1.5 w-full rounded-xl border border-tomato/20 bg-white px-4 py-3 text-espresso outline-none transition-colors placeholder:text-espresso/40 focus:border-tomato focus:ring-2 focus:ring-tomato/20";
+  "mt-1.5 w-full border-2 border-ink bg-cream px-4 py-3 font-body text-ink outline-none transition-colors placeholder:text-ink/40 focus:border-brick focus:bg-white";
 
 export default function Reservations() {
   const [form, setForm] = useState({
@@ -44,25 +45,32 @@ export default function Reservations() {
     {
       icon: WhatsAppIcon,
       label: "WhatsApp",
-      value: "Scrivici su WhatsApp",
+      value: "Scrivici ora",
       href: `https://wa.me/${site.whatsapp}`,
     },
     { icon: MailIcon, label: "Email", value: site.email, href: `mailto:${site.email}` },
-    { icon: InstagramIcon, label: "Instagram", value: "@rossopomodoroscalomilano", href: site.instagram },
+    {
+      icon: InstagramIcon,
+      label: "Instagram",
+      value: "@rossopomodoroscalomilano",
+      href: site.instagram,
+    },
   ];
 
   return (
-    <section id="prenota" className="scroll-mt-20 bg-espresso py-20 text-cream sm:py-24">
+    <section id="prenota" className="scroll-mt-20 border-t-2 border-ink bg-bottle-dark py-20 text-cream sm:py-24">
       <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-start">
-        {/* Testo + contatti */}
         <div>
-          <span className="eyebrow text-tomato-light">Prenotazioni</span>
-          <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl">
-            Prenota il tuo tavolo
+          <p className="label flex items-center gap-3 text-mustard">
+            <StarIcon width={14} height={14} />
+            Prenotazioni
+          </p>
+          <h2 className="mt-4 font-display text-5xl uppercase leading-[0.95] sm:text-6xl">
+            Prenota il<span className="block text-mustard">tuo tavolo</span>
           </h2>
-          <p className="mt-4 max-w-md text-cream/75">
-            Compila il modulo e invia la richiesta direttamente su WhatsApp, oppure contattaci come
-            preferisci. Ti confermiamo noi la disponibilità.
+          <p className="mt-5 max-w-md font-body text-lg italic text-cream/80">
+            Compila il modulo e invia la richiesta su WhatsApp, oppure contattaci come preferisci.
+            Ti confermiamo noi la disponibilità.
           </p>
 
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -72,16 +80,16 @@ export default function Reservations() {
                   href={c.href}
                   target={c.href.startsWith("http") ? "_blank" : undefined}
                   rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-3 rounded-2xl border border-cream/10 bg-white/5 px-4 py-3 transition-colors hover:border-tomato/50 hover:bg-white/10"
+                  className="flex items-center gap-3 border-2 border-cream/25 bg-bottle px-4 py-3 transition-colors hover:border-mustard"
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-tomato/20 text-tomato-light">
+                  <span className="seal h-10 w-10 shrink-0 bg-mustard text-ink">
                     <c.icon width={20} height={20} />
                   </span>
                   <span className="min-w-0">
-                    <span className="block text-xs uppercase tracking-wider text-cream/50">
+                    <span className="block font-cond text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-cream/55">
                       {c.label}
                     </span>
-                    <span className="block truncate text-sm font-semibold">{c.value}</span>
+                    <span className="block truncate font-cond text-sm font-medium">{c.value}</span>
                   </span>
                 </a>
               </li>
@@ -89,14 +97,21 @@ export default function Reservations() {
           </ul>
         </div>
 
-        {/* Form */}
+        {/* Coupon / modulo */}
         <form
           onSubmit={handleSubmit}
-          className="rounded-3xl bg-cream p-6 text-espresso shadow-soft sm:p-8"
+          className="border-2 border-ink bg-paper p-6 text-ink shadow-cardRed sm:p-8"
         >
+          <div className="mb-5 flex items-center justify-between border-b-2 border-dashed border-ink/30 pb-3">
+            <span className="font-display text-xl uppercase text-brick">Prenotazione</span>
+            <span className="font-cond text-xs font-semibold uppercase tracking-[0.25em] text-ink/50">
+              N° ____
+            </span>
+          </div>
+
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="sm:col-span-2">
-              <label htmlFor="name" className="text-sm font-semibold">
+              <label htmlFor="name" className="font-cond text-sm font-semibold uppercase tracking-wide">
                 Nome e cognome
               </label>
               <input
@@ -111,7 +126,7 @@ export default function Reservations() {
             </div>
 
             <div>
-              <label htmlFor="guests" className="text-sm font-semibold">
+              <label htmlFor="guests" className="font-cond text-sm font-semibold uppercase tracking-wide">
                 Persone
               </label>
               <select id="guests" value={form.guests} onChange={update("guests")} className={inputBase}>
@@ -124,7 +139,7 @@ export default function Reservations() {
             </div>
 
             <div>
-              <label htmlFor="date" className="text-sm font-semibold">
+              <label htmlFor="date" className="font-cond text-sm font-semibold uppercase tracking-wide">
                 Data
               </label>
               <input
@@ -138,7 +153,7 @@ export default function Reservations() {
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="time" className="text-sm font-semibold">
+              <label htmlFor="time" className="font-cond text-sm font-semibold uppercase tracking-wide">
                 Orario
               </label>
               <input
@@ -152,8 +167,8 @@ export default function Reservations() {
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="note" className="text-sm font-semibold">
-                Note <span className="font-normal text-espresso/50">(facoltativo)</span>
+              <label htmlFor="note" className="font-cond text-sm font-semibold uppercase tracking-wide">
+                Note <span className="text-ink/50">(facoltativo)</span>
               </label>
               <textarea
                 id="note"
@@ -168,10 +183,10 @@ export default function Reservations() {
 
           <button type="submit" className="btn-primary mt-6 w-full">
             <WhatsAppIcon width={18} height={18} />
-            Invia richiesta su WhatsApp
+            Invia su WhatsApp
             <ArrowRightIcon width={18} height={18} />
           </button>
-          <p className="mt-3 text-center text-xs text-espresso/55">
+          <p className="mt-3 text-center font-body text-xs italic text-ink/60">
             Si aprirà WhatsApp con il messaggio già pronto. La prenotazione è valida solo dopo la
             nostra conferma.
           </p>

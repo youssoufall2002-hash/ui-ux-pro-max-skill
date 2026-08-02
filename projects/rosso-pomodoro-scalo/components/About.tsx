@@ -1,57 +1,64 @@
 import Reveal from "./Reveal";
-import { WheatIcon, FlameIcon, LeafIcon } from "./Icons";
+import { WheatIcon, FlameIcon, LeafIcon, StarIcon } from "./Icons";
 
 const pillars = [
   {
     icon: WheatIcon,
     title: "L'impasto",
-    text: "Farine selezionate e una lievitazione lenta di 24 ore, per un cornicione alto, leggero e digeribile.",
+    text: "Lievitazione lenta di 24 ore: cornicione alto, leggero e digeribile.",
   },
   {
     icon: FlameIcon,
-    title: "Il forno a legna",
-    text: "Temperatura oltre i 450°C: la pizza cuoce in 90 secondi, mantenendo morbidezza e profumo.",
+    title: "Forno a legna",
+    text: "Oltre 450°C, cottura in 90 secondi. Morbida dentro, profumata fuori.",
   },
   {
     icon: LeafIcon,
-    title: "Gli ingredienti",
-    text: "Pomodoro San Marzano, mozzarella di bufala campana DOP, basilico fresco e olio EVO.",
+    title: "Ingredienti DOP",
+    text: "San Marzano, bufala campana, basilico fresco e olio EVO.",
   },
 ];
 
 export default function About() {
   return (
-    <section id="storia" className="scroll-mt-20 bg-parchment/60 py-20 sm:py-24">
+    <section id="storia" className="scroll-mt-20 border-y-2 border-ink bg-bottle py-20 text-cream sm:py-24">
       <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
         <Reveal>
-          <span className="eyebrow">La nostra storia</span>
-          <h2 className="mt-4 font-display text-3xl font-bold text-espresso sm:text-4xl">
-            Napoli incontra lo Scalo di Milano
+          <p className="label flex items-center gap-3 text-mustard">
+            <StarIcon width={14} height={14} />
+            La nostra storia
+          </p>
+          <h2 className="mt-4 font-display text-5xl uppercase leading-[0.95] sm:text-6xl">
+            Napoli incontra
+            <span className="block text-mustard">lo Scalo</span>
           </h2>
-          <div className="mt-6 space-y-4 text-espresso/75">
+          <div className="mt-6 space-y-4 font-body text-cream/85">
             <p>
-              Rosso Pomodoro nasce dall&apos;amore per la vera pizza napoletana. Allo Scalo di Milano
-              portiamo lo stesso gesto di sempre: le mani nella farina, il rispetto dei tempi di
-              lievitazione e la fiamma viva del forno a legna.
+              Rosso Pomodoro nasce dall&apos;amore per la vera pizza napoletana. Allo Scalo di
+              Milano portiamo lo stesso gesto di sempre: le mani nella farina, il rispetto dei
+              tempi di lievitazione e la fiamma viva del forno a legna.
             </p>
-            <p>
-              Un locale accogliente, tra il legno e il rosso pomodoro, dove ritrovare i sapori
-              autentici del Sud in un quartiere che guarda al futuro. Che sia una cena tra amici o
-              una serata in famiglia, qui la pizza si fa con il cuore.
+            <p className="italic text-cream/70">
+              Tra il legno e il verde delle nostre insegne, ritrovi i sapori autentici del Sud in
+              un quartiere che guarda al futuro. Qui la pizza si fa con il cuore.
             </p>
           </div>
         </Reveal>
 
-        <div className="grid gap-4 sm:grid-cols-1">
+        <div className="grid gap-5 sm:grid-cols-3 lg:grid-cols-1">
           {pillars.map((p, i) => (
             <Reveal key={p.title} delay={i * 80}>
-              <div className="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-card transition-transform duration-200 hover:-translate-y-0.5">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-tomato/10 text-tomato">
+              <div className="flex items-start gap-4 border-2 border-ink bg-cream p-5 text-ink shadow-cardRed">
+                <span className="seal h-12 w-12 shrink-0 bg-brick text-cream">
                   <p.icon width={22} height={22} />
                 </span>
                 <div>
-                  <h3 className="font-display text-lg font-semibold text-espresso">{p.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-espresso/65">{p.text}</p>
+                  <h3 className="font-cond text-lg font-semibold uppercase tracking-wide text-brick">
+                    {p.title}
+                  </h3>
+                  <p className="mt-1 font-body text-sm italic leading-relaxed text-ink/70">
+                    {p.text}
+                  </p>
                 </div>
               </div>
             </Reveal>

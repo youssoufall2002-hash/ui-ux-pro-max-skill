@@ -8,38 +8,52 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Palette "Rosso Pomodoro" — caldo e tradizionale
-        tomato: {
-          DEFAULT: "#DC2626", // rosso pomodoro
-          light: "#F87171",
-          dark: "#B91C1C",
-          deep: "#7F1D1D",
+        // Palette "Insegna vintage napoletana"
+        bottle: {
+          DEFAULT: "#0E3B2E", // verde bottiglia
+          dark: "#0A2C22",
+          light: "#1B5140",
         },
-        gold: {
-          DEFAULT: "#A16207", // oro / crosta al forno
-          light: "#CA8A04",
+        cream: "#F2E8CF", // crema insegna
+        paper: "#F7F0DA", // carta chiara
+        brick: {
+          DEFAULT: "#C1352B", // rosso insegna
+          dark: "#9E2A22",
         },
-        cream: "#FDF6EF", // panna / mozzarella
-        parchment: "#F6E9DA",
-        espresso: "#3A1607", // testo scuro caldo
-        basil: "#4D7C2F", // basilico (accento)
+        mustard: {
+          DEFAULT: "#E8B93A", // giallo vintage
+          dark: "#C79A22",
+        },
+        ink: "#20180F", // testo scuro caldo
       },
       fontFamily: {
-        display: ["var(--font-playfair)", "Georgia", "serif"],
-        body: ["var(--font-karla)", "system-ui", "sans-serif"],
+        display: ["var(--font-anton)", "Impact", "sans-serif"], // insegna condensata
+        cond: ["var(--font-oswald)", "Oswald", "sans-serif"], // etichette condensate
+        body: ["var(--font-fraunces)", "Georgia", "serif"], // testo old-style
       },
       boxShadow: {
-        soft: "0 10px 30px -12px rgba(58, 22, 7, 0.25)",
-        card: "0 4px 20px -8px rgba(58, 22, 7, 0.18)",
+        sign: "0 0 0 3px #F2E8CF, 0 0 0 6px #0E3B2E",
+        card: "6px 6px 0 0 #0E3B2E",
+        cardRed: "6px 6px 0 0 #C1352B",
       },
       keyframes: {
         "fade-up": {
           "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        ticker: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.6s ease-out both",
+        ticker: "ticker 24s linear infinite",
+        "spin-slow": "spin-slow 40s linear infinite",
       },
     },
   },

@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <a
         href="#menu"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-tomato focus:px-4 focus:py-2 focus:text-white"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:border-2 focus:border-ink focus:bg-brick focus:px-4 focus:py-2 focus:text-cream"
       >
         Vai al contenuto
       </a>

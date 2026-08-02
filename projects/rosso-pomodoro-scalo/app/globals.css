@@ -3,44 +3,44 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #dc2626;
-  --color-accent: #a16207;
-  --color-background: #fdf6ef;
-  --color-foreground: #3a1607;
+  --color-bottle: #0e3b2e;
+  --color-cream: #f2e8cf;
+  --color-brick: #c1352b;
+  --color-mustard: #e8b93a;
+  --color-ink: #20180f;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 4.5rem;
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background-color: var(--color-cream);
+    color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Warm paper texture — leggera, senza immagini esterne */
+  /* Grana di carta stampata vintage */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
-    background:
-      radial-gradient(circle at 15% 15%, rgba(220, 38, 38, 0.05), transparent 40%),
-      radial-gradient(circle at 85% 0%, rgba(161, 98, 7, 0.06), transparent 45%);
+    background-image: radial-gradient(rgba(32, 24, 15, 0.05) 1px, transparent 1px);
+    background-size: 4px 4px;
     pointer-events: none;
   }
 
   h1, h2, h3, h4 {
-    font-family: var(--font-playfair), Georgia, serif;
+    font-family: var(--font-anton), Impact, sans-serif;
+    letter-spacing: 0.01em;
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-primary);
+    outline: 3px solid var(--color-brick);
     outline-offset: 3px;
-    border-radius: 4px;
   }
 }
 
@@ -49,24 +49,50 @@
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
 
-  .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-tomato;
+  /* Etichetta condensata in maiuscolo (stile insegna) */
+  .label {
+    @apply font-cond text-xs font-semibold uppercase tracking-[0.28em];
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none;
-    min-height: 44px;
+    @apply inline-flex items-center justify-center gap-2 font-cond text-sm font-semibold uppercase tracking-widest transition-all duration-150;
+    min-height: 46px;
+    padding: 0 1.6rem;
   }
-
   .btn-primary {
-    @apply btn bg-tomato text-white shadow-soft hover:bg-tomato-dark hover:-translate-y-0.5;
+    @apply btn bg-brick text-cream shadow-card hover:-translate-x-0.5 hover:-translate-y-0.5;
+    border: 2px solid var(--color-ink);
+  }
+  .btn-mustard {
+    @apply btn bg-mustard text-ink shadow-card hover:-translate-x-0.5 hover:-translate-y-0.5;
+    border: 2px solid var(--color-ink);
+  }
+  .btn-outline {
+    @apply btn border-2 border-current bg-transparent hover:bg-ink hover:text-cream;
   }
 
-  .btn-ghost {
-    @apply btn border border-tomato/30 bg-white/60 text-espresso hover:border-tomato hover:bg-white;
+  /* Cornice a doppia linea da manifesto */
+  .frame {
+    border: 2px solid currentColor;
+    box-shadow: inset 0 0 0 4px transparent, inset 0 0 0 6px currentColor;
   }
 
-  /* Reveal-on-scroll (vedi components/Reveal.tsx) */
+  /* Puntini di guida tra nome pizza e prezzo */
+  .leader {
+    flex: 1;
+    margin: 0 0.6rem 0.35rem;
+    border-bottom: 2px dotted currentColor;
+    opacity: 0.4;
+  }
+
+  /* Timbro / bollo circolare */
+  .seal {
+    @apply relative flex items-center justify-center rounded-full text-center font-cond uppercase;
+    border: 2px solid currentColor;
+    box-shadow: 0 0 0 4px transparent, 0 0 0 6px currentColor;
+  }
+
+  /* Reveal-on-scroll */
   .reveal {
     opacity: 0;
     transform: translateY(20px);
@@ -78,19 +104,33 @@
   }
 }
 
+@layer utilities {
+  /* Raggi da sole vintage (dietro un timbro / titolo) */
+  .rays {
+    background-image: repeating-conic-gradient(
+      from 0deg,
+      rgba(232, 185, 58, 0.35) 0deg 6deg,
+      transparent 6deg 12deg
+    );
+  }
+  .text-stroke-ink {
+    -webkit-text-stroke: 2px var(--color-ink);
+  }
+}
+
 /* Senza JavaScript o con movimento ridotto: contenuti sempre visibili */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   .reveal {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
-}
-
-/* Rispetta le preferenze di riduzione del movimento */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  .animate-ticker,
+  .animate-spin-slow {
+    animation: none !important;
   }
   *,
   *::before,

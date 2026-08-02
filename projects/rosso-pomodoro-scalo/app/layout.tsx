@@ -1,19 +1,27 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Karla } from "next/font/google";
+import { Anton, Oswald, Fraunces } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const anton = Anton({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-playfair",
+  weight: ["400"],
+  variable: "--font-anton",
   display: "swap",
 });
 
-const karla = Karla({
+const oswald = Oswald({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-karla",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-oswald",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -42,7 +50,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="it" className={`${playfair.variable} ${karla.variable}`}>
+    <html
+      lang="it"
+      className={`${anton.variable} ${oswald.variable} ${fraunces.variable}`}
+    >
       <body className="font-body antialiased">
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
