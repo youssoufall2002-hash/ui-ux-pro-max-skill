@@ -1,0 +1,32 @@
+{
+  "slug": "salone-esempio",
+  "nome": "Salone Esempio",
+  "citta": "Monza",
+  "telefono": "+390391234567",
+  "whatsapp": "390391234567",
+  "instagram": "https://instagram.com/salone.esempio",
+  "indirizzo": "Via Roma 12",
+  "orari": {
+    "lun": "chiuso",
+    "mar": "09:00–18:30",
+    "mer": "09:00–18:30",
+    "gio": "09:00–20:00",
+    "ven": "09:00–20:00",
+    "sab": "08:30–17:00",
+    "dom": "chiuso"
+  },
+  "accento": "#6C4CF0",
+  "servizi": [
+    { "nome": "Taglio donna", "prezzo": "€ 35" },
+    { "nome": "Taglio uomo", "prezzo": "€ 22" },
+    { "nome": "Colore", "prezzo": "da € 55" },
+    { "nome": "Piega", "prezzo": "€ 25" }
+  ],
+  "foto": {
+    "hero": "hero.webp",
+    "galleria": ["g1.webp", "g2.webp", "g3.webp", "g4.webp", "g5.webp"],
+    "prima_dopo": ["prima.webp", "dopo.webp"]
+  },
+  "mappa_embed": "",
+  "note": "Esempio. Sostituire con i dati reali del cliente. Le foto vanno in /img/ in formato WebP."
+}

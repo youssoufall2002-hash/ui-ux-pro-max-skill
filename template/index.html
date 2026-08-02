@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- §9: <title> e meta description con nome salone + città -->
+  <title>{{nome}} — Parrucchiere a {{citta}}</title>
+  <meta name="description" content="{{nome}}, parrucchiere a {{citta}}. Prenota online o chiama. Taglio, colore e piega." />
+
+  <!-- §3: font. display=titoli, body=testo, util=orari/prezzi/etichette -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- §9: Schema.org HairSalon con orari, indirizzo, telefono -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "{{nome}}",
+    "telephone": "{{telefono}}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{indirizzo}}",
+      "addressLocality": "{{citta}}",
+      "addressCountry": "IT"
+    },
+    "openingHoursSpecification": {{schema_orari}},
+    "sameAs": ["{{instagram}}"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================= -->
+  <!-- §5.1 HERO                                                     -->
+  <!-- ============================================================= -->
+  <header class="hero" id="top">
+    <img class="hero__bg" src="img/{{foto_hero}}" alt="Interno del salone {{nome}} a {{citta}}" fetchpriority="high" />
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <!-- Il nome esce dal bordo e viene tagliato dalla viewport (§5.1) -->
+      <h1 class="hero__title" data-anim="hero-title">{{nome}}</h1>
+      <p class="hero__meta util">Parrucchiere · {{citta}}</p>
+      <a class="btn btn--volt" href="#prenota" data-anim="hero-cta">Prenota</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================== -->
+    <!-- §5.2 SERVIZI                                                -->
+    <!-- =========================================================== -->
+    <section class="section" id="servizi" aria-labelledby="servizi-h">
+      <h2 class="section__title" id="servizi-h">Servizi</h2>
+      <ul class="servizi">
+        <!-- BEGIN:servizi (blocco ripetuto per ogni voce di servizi[]) -->
+        <li class="card servizio">
+          <span class="servizio__nome">{{servizio_nome}}</span>
+          <span class="servizio__prezzo util">{{servizio_prezzo}}</span>
+        </li>
+        <!-- END:servizi -->
+      </ul>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- §5.3 / §6 SIGNATURE — slider prima/dopo trascinabile         -->
+    <!-- =========================================================== -->
+    <section class="section" id="signature" aria-labelledby="signature-h">
+      <h2 class="section__title" id="signature-h">Prima / dopo</h2>
+      <div
+        class="ba"
+        role="slider"
+        tabindex="0"
+        aria-label="Confronto prima e dopo. Usa le frecce per scorrere."
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="50"
+      >
+        <img class="ba__img ba__img--after" src="img/{{foto_dopo}}" alt="Risultato dopo il servizio da {{nome}}" loading="lazy" />
+        <img class="ba__img ba__img--before" src="img/{{foto_prima}}" alt="Capelli prima del servizio da {{nome}}" loading="lazy" />
+        <div class="ba__handle" aria-hidden="true"><span class="ba__grip"></span></div>
+        <span class="ba__tag ba__tag--before util">Prima</span>
+        <span class="ba__tag ba__tag--after util">Dopo</span>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- §5.4 GALLERIA — foto reali del cliente (griglia asimmetrica) -->
+    <!-- =========================================================== -->
+    <section class="section" id="galleria" aria-labelledby="galleria-h">
+      <h2 class="section__title" id="galleria-h">Galleria</h2>
+      <div class="galleria">
+        <!-- BEGIN:galleria (blocco ripetuto per ogni foto di foto.galleria[]) -->
+        <figure class="galleria__item">
+          <img src="img/{{galleria_foto}}" alt="Lavoro realizzato da {{nome}}" loading="lazy" />
+        </figure>
+        <!-- END:galleria -->
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- §5.5 INFO — orari in mono, indirizzo, mappa                 -->
+    <!-- =========================================================== -->
+    <section class="section" id="info" aria-labelledby="info-h">
+      <h2 class="section__title" id="info-h">Dove e quando</h2>
+      <div class="info">
+        <div class="info__col">
+          <h3 class="util info__label">Orari</h3>
+          <dl class="orari">
+            <!-- BEGIN:orari (blocco ripetuto per ogni giorno di orari{}) -->
+            <div class="orari__riga">
+              <dt class="util">{{orario_giorno}}</dt>
+              <dd class="util">{{orario_valore}}</dd>
+            </div>
+            <!-- END:orari -->
+          </dl>
+        </div>
+        <div class="info__col">
+          <h3 class="util info__label">Indirizzo</h3>
+          <address class="info__addr">{{indirizzo}}<br />{{citta}}</address>
+          <div class="mappa">
+            <iframe
+              title="Mappa di {{nome}} a {{citta}}"
+              src="{{mappa_embed}}"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================= -->
+  <!-- §5.6 FOOTER                                                   -->
+  <!-- ============================================================= -->
+  <footer class="footer" id="prenota">
+    <p class="footer__nome">{{nome}}</p>
+    <nav class="footer__links">
+      <a class="btn btn--volt" href="tel:{{telefono}}">Chiama</a>
+      <a class="btn btn--line" href="https://wa.me/{{whatsapp}}">Scrivi su WhatsApp</a>
+      <a class="btn btn--line" href="{{instagram}}">Instagram</a>
+    </nav>
+    <p class="footer__tel util"><a href="tel:{{telefono}}">{{telefono}}</a></p>
+  </footer>
+
+  <!-- Barra sticky mobile: Chiama + Prenota sempre visibili (§5) -->
+  <nav class="sticky" aria-label="Azioni rapide">
+    <a class="sticky__btn" href="tel:{{telefono}}">Chiama</a>
+    <a class="sticky__btn sticky__btn--volt" href="#prenota">Prenota</a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
