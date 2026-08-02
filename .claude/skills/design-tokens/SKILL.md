@@ -14,7 +14,13 @@ description: >-
   pulls real, WCAG-checked palettes and proven font pairings and assembles them
   into a coherent, themeable system in one step. This produces the *variables* a
   project is built on; reach for the generic design-system skill instead when
-  the need is token-architecture theory or slide generation.
+  the need is token-architecture theory or slide generation. Do NOT use it for
+  jobs that only look adjacent: a chart/series color palette (that's dataviz), a
+  logo or full brand identity (that's design/brand), a one-off contrast or single
+  color fix on existing UI, converting an existing token export to another format
+  (e.g. Figma → Style Dictionary), building a specific page or component, or
+  wiring a dark-mode toggle in app code — this skill creates the foundational
+  token set itself, it doesn't critique, convert, or build features on top of one.
 license: MIT
 ---
 
