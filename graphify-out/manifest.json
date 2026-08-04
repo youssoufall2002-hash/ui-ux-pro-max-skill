@@ -1493,5 +1493,50 @@
     "mtime": 1785304268.1209674,
     "ast_hash": "e31f3d6be53491d545dbfad528e7fa7b",
     "semantic_hash": "e31f3d6be53491d545dbfad528e7fa7b"
+  },
+  ".claude/skills/ui-styling/LICENSE.txt": {
+    "mtime": 1785304267.8275878,
+    "ast_hash": "175792518e4ac015ab6696d16c4f607e",
+    "semantic_hash": "175792518e4ac015ab6696d16c4f607e"
+  },
+  ".claude/skills/ui-styling/canvas-fonts/JetBrainsMono-OFL.txt": {
+    "mtime": 1785304267.9329674,
+    "ast_hash": "2025a2ee80175b15561a8232e67d74d5",
+    "semantic_hash": "2025a2ee80175b15561a8232e67d74d5"
+  },
+  "cli/assets/skills/ui-styling/scripts/tests/requirements.txt": {
+    "mtime": 1785304268.095538,
+    "ast_hash": "d7fb3d2ea85706944ec8609949c3a851",
+    "semantic_hash": "d7fb3d2ea85706944ec8609949c3a851"
+  },
+  "stack/examples/juniper-audit/screenshots/desktop-1440.png": {
+    "mtime": 1785304268.1649673,
+    "ast_hash": "4725ab55d102a03b1f2c329395774ddc",
+    "semantic_hash": "4725ab55d102a03b1f2c329395774ddc"
+  },
+  "stack/examples/juniper-audit/screenshots/laptop-1024.png": {
+    "mtime": 1785304268.1689672,
+    "ast_hash": "ab37dddc386afc2ef527375142aa1e62",
+    "semantic_hash": "ab37dddc386afc2ef527375142aa1e62"
+  },
+  "stack/examples/juniper-audit/screenshots/mobile-360.png": {
+    "mtime": 1785304268.1729674,
+    "ast_hash": "0b29ce7399f66badad3a31603f33644e",
+    "semantic_hash": "0b29ce7399f66badad3a31603f33644e"
+  },
+  "stack/examples/juniper-audit/screenshots/mobile-390.png": {
+    "mtime": 1785304268.1769674,
+    "ast_hash": "0422d0a456092a72a9067cc277597d8d",
+    "semantic_hash": "0422d0a456092a72a9067cc277597d8d"
+  },
+  "stack/examples/juniper-audit/screenshots/tablet-768.png": {
+    "mtime": 1785304268.1809673,
+    "ast_hash": "28e718580c04d40de952264674358c60",
+    "semantic_hash": "28e718580c04d40de952264674358c60"
+  },
+  "stack/examples/juniper-audit/screenshots/wide-1920.png": {
+    "mtime": 1785304268.1889675,
+    "ast_hash": "343e9d1eae571446bc5e557a65873d1b",
+    "semantic_hash": "343e9d1eae571446bc5e557a65873d1b"
   }
 }
