@@ -100,6 +100,14 @@ When modifying files:
    `.claude/skills/ui-ux-pro-max/SKILL.md` itself is hand-authored, not
    mirrored or template-generated -- edit it directly.
 
+   After editing CSV data, run the same checks CI/`prepublishOnly` runs:
+   ```bash
+   cd cli
+   npm run validate:csv    # scripts/validate-csv.py: headers, primary keys, JSON columns
+   npm run smoke:domains   # one query per domain resolves
+   npm run smoke:stacks    # one query per stack resolves
+   ```
+
 4. **Reference Folders** - No manual sync needed. The CLI generates these from templates during `uipro init`.
 
 ## Prerequisites
