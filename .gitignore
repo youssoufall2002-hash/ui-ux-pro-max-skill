@@ -54,3 +54,6 @@ ui-ux-pro-max-website/*
 
 cli/playwright-report/
 cli/test-results/
+
+# graphify volatile per-query artifacts
+graphify-out/cache/last_query_stamp
