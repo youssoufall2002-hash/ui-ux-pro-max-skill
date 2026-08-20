@@ -1,0 +1,147 @@
+/* Design Tokens - Auto-generated */
+/* Do not edit directly - modify tokens.json instead */
+
+/* === PRIMITIVES === */
+:root {
+  --primitive-color-slate-50: #F8FAFC;
+  --primitive-color-slate-100: #F1F5F9;
+  --primitive-color-slate-200: #E2E8F0;
+  --primitive-color-slate-300: #CBD5E1;
+  --primitive-color-slate-400: #94A3B8;
+  --primitive-color-slate-500: #64748B;
+  --primitive-color-slate-600: #475569;
+  --primitive-color-slate-700: #334155;
+  --primitive-color-slate-800: #1E293B;
+  --primitive-color-slate-900: #0F172A;
+  --primitive-color-slate-950: #020617;
+  --primitive-color-indigo-50: #EEF2FF;
+  --primitive-color-indigo-100: #E0E7FF;
+  --primitive-color-indigo-400: #818CF8;
+  --primitive-color-indigo-500: #6366F1;
+  --primitive-color-indigo-600: #4F46E5;
+  --primitive-color-indigo-700: #4338CA;
+  --primitive-color-indigo-800: #3730A3;
+  --primitive-color-amber-300: #FCD34D;
+  --primitive-color-amber-400: #FBBF24;
+  --primitive-color-amber-500: #F59E0B;
+  --primitive-color-amber-600: #D97706;
+  --primitive-color-red-500: #EF4444;
+  --primitive-color-red-600: #DC2626;
+  --primitive-color-red-700: #B91C1C;
+  --primitive-color-green-500: #22C55E;
+  --primitive-color-green-600: #16A34A;
+  --primitive-color-white: #FFFFFF;
+  --primitive-spacing-0: 0;
+  --primitive-spacing-1: 0.25rem;
+  --primitive-spacing-2: 0.5rem;
+  --primitive-spacing-3: 0.75rem;
+  --primitive-spacing-4: 1rem;
+  --primitive-spacing-5: 1.25rem;
+  --primitive-spacing-6: 1.5rem;
+  --primitive-spacing-8: 2rem;
+  --primitive-spacing-10: 2.5rem;
+  --primitive-spacing-12: 3rem;
+  --primitive-spacing-16: 4rem;
+  --primitive-spacing-24: 6rem;
+  --primitive-fontFamily-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --primitive-fontFamily-mono: 'JetBrains Mono', 'Geist Mono', ui-monospace, monospace;
+  --primitive-fontSize-xs: 0.75rem;
+  --primitive-fontSize-sm: 0.875rem;
+  --primitive-fontSize-base: 1rem;
+  --primitive-fontSize-lg: 1.125rem;
+  --primitive-fontSize-xl: 1.25rem;
+  --primitive-fontSize-2xl: 1.5rem;
+  --primitive-fontSize-3xl: 1.875rem;
+  --primitive-fontSize-4xl: 2.25rem;
+  --primitive-fontSize-5xl: 3rem;
+  --primitive-radius-none: 0;
+  --primitive-radius-sm: 0.125rem;
+  --primitive-radius-default: 0.375rem;
+  --primitive-radius-md: 0.5rem;
+  --primitive-radius-lg: 0.75rem;
+  --primitive-radius-xl: 1rem;
+  --primitive-radius-full: 9999px;
+  --primitive-shadow-none: none;
+  --primitive-shadow-sm: 0 1px 2px 0 rgb(2 6 23 / 0.06);
+  --primitive-shadow-default: 0 1px 3px 0 rgb(2 6 23 / 0.10), 0 1px 2px -1px rgb(2 6 23 / 0.10);
+  --primitive-shadow-md: 0 4px 6px -1px rgb(2 6 23 / 0.10), 0 2px 4px -2px rgb(2 6 23 / 0.10);
+  --primitive-shadow-lg: 0 10px 15px -3px rgb(2 6 23 / 0.12), 0 4px 6px -4px rgb(2 6 23 / 0.10);
+  --primitive-shadow-glow: 0 0 0 3px rgb(99 102 241 / 0.35);
+  --primitive-duration-fast: 150ms;
+  --primitive-duration-normal: 220ms;
+  --primitive-duration-slow: 320ms;
+}
+
+/* === SEMANTIC === */
+:root {
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-foreground: #0F172A;
+  --color-primary: #4F46E5;
+  --color-primary-hover: #4338CA;
+  --color-primary-foreground: #FFFFFF;
+  --color-accent: #F59E0B;
+  --color-accent-hover: #D97706;
+  --color-accent-foreground: #020617;
+  --color-secondary: #F1F5F9;
+  --color-secondary-foreground: #0F172A;
+  --color-muted: #F1F5F9;
+  --color-muted-foreground: #64748B;
+  --color-success: #16A34A;
+  --color-destructive: #DC2626;
+  --color-destructive-foreground: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-ring: #6366F1;
+  --typography-font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --typography-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --typography-font-code: 'JetBrains Mono', 'Geist Mono', ui-monospace, monospace;
+  --spacing-component: 1rem;
+  --spacing-section: 4rem;
+}
+
+/* === COMPONENTS === */
+:root {
+  --button-bg: #4F46E5;
+  --button-fg: #FFFFFF;
+  --button-hover-bg: #4338CA;
+  --button-accent-bg: #F59E0B;
+  --button-accent-fg: #020617;
+  --button-padding-x: 1.25rem;
+  --button-padding-y: 0.5rem;
+  --button-radius: 0.5rem;
+  --button-font-size: 0.875rem;
+  --button-focus-ring: 0 0 0 3px rgb(99 102 241 / 0.35);
+  --input-bg: #FFFFFF;
+  --input-border: #E2E8F0;
+  --input-focus-ring: #6366F1;
+  --input-padding-x: 0.75rem;
+  --input-padding-y: 0.5rem;
+  --input-radius: 0.5rem;
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0;
+  --card-shadow: 0 1px 3px 0 rgb(2 6 23 / 0.10), 0 1px 2px -1px rgb(2 6 23 / 0.10);
+  --card-padding: 1.5rem;
+  --card-radius: 0.75rem;
+  --badge-bg: #F59E0B;
+  --badge-fg: #020617;
+  --badge-padding-x: 0.5rem;
+  --badge-padding-y: 0.25rem;
+  --badge-radius: 9999px;
+  --badge-font-size: 0.75rem;
+}
+
+/* === DARK MODE === */
+.dark {
+  --color-background: #020617;
+  --color-surface: #0F172A;
+  --color-foreground: #F8FAFC;
+  --color-primary: #6366F1;
+  --color-primary-hover: #818CF8;
+  --color-accent: #FBBF24;
+  --color-secondary: #1E293B;
+  --color-secondary-foreground: #F8FAFC;
+  --color-muted: #1E293B;
+  --color-muted-foreground: #94A3B8;
+  --color-border: #1E293B;
+  --color-ring: #818CF8;
+}
